@@ -1,0 +1,16 @@
+/*---signup----*/
+
+.signup-bg {
+    background-image: url("{% static 'signupbg.jpg' %}"),
+    linear-gradient(to right,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6));
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+}
+
+.signup-container {
+    margin-left: auto;
+    margin-right: auto;
+}

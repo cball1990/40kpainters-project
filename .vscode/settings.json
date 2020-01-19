@@ -1,6 +1,6 @@
 {
     "python.pythonPath": "C:\\Users\\craig\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
-    "python.linting.pep8Enabled": true,
+    "python.linting.pycodestyleEnabled": false,
     "python.linting.pylintPath": "C:/Users/craig/AppData/Local/Programs/Python/Python38-32/python.exe",
     "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
     "python.linting.pylintEnabled": true,

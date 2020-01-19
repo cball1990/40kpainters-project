@@ -1,0 +1,38 @@
+/*---signup----*/
+
+.signup-bg {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.65), rgba(121, 120, 189, 0.85)), url("signupbg.jpg");
+    width: 100%;
+    height: 658px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signup-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f8f9fa;
+    width: 250px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: -12px 13px 17px 2px rgba(0, 0, 0, 0.75);
+    position: relative;
+    top: 100px;
+}
+
+.signup-form {
+    font-family: 'PT Sans', sans-serif;
+    color: #6f6b6b;
+}
+
+.signup-form-header {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    text-decoration: underline;
+}
+
+input {
+    border-radius: 5px;
+}

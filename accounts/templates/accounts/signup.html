@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="container-fluid signup-bg">
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+    <div class="col-sm-12">
+        <div class="signup-container align-middle">
+        <p class="signup-form-header pt-3">Sign Up</p>
+            <form class="signup-form" method='POST' action="{% url 'signup' %}">
+                {% csrf_token %}
+                Username:
+                <br />
+                <input type="text" name="username" />
+                <br />
+                Email:
+                <br />
+                <input type="text" name="email" />
+                <br />
+                Password:
+                <br />
+                <input type="password" name="password1" />
+                <br />
+                Confirm Password:
+                <br />
+                <input type="password" name="password2" />
+                <br />
+                <br />
+                <input class="btn btn-info" type="submit" value="Sign Up!" />
+                <br>
+                <br>
+                <p class="text-muted">All ready have an account?<br> <a href="{% url 'login' %}">Login</a></p>
+            </form>       
+        </div>
+    </div>
+</div>
+{% endblock %}
