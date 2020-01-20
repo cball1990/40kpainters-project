@@ -26,7 +26,11 @@
                     <a class="nav-item nav-link" href="">Gallery</a>
                     <a class="nav-item nav-link" href="">Reviews</a>
                     <a class="nav-item nav-link" href="">Account</a>
-                    <a class="nav-item nav-link" href="">Logout</a>
+                      <form id="logout" method="POST" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <input type="hidden">
+                      </form>
+                    <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                     <form id="logout" method="POST" action="{% url 'logout' %}">
                       {% csrf_token %}
                     <input type="hidden">
@@ -35,7 +39,7 @@
                     <a class="nav-item nav-link" href="">Order</a>
                     <a class="nav-item nav-link" href="">Gallery</a>
                     <a class="nav-item nav-link" href="">Reviews</a>
-                    <a class="nav-item nav-link" href="">Sign up/Login</a>
+                    <a class="nav-item nav-link" href="{% url 'signup' %}">Sign up/Login</a>
                     {% endif %}
                     </div>
                 </div>

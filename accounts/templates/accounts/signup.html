@@ -2,20 +2,17 @@
 
 {% block content %}
 <div class="container-fluid signup-bg">
-{% if error %}
-{{ error }}
-<br>
-<br>
-{% endif %}
+
     <div class="col-sm-12">
         <div class="signup-container align-middle">
         <p class="signup-form-header pt-3">Sign Up</p>
+        {% if error %}
+        {{ error }}
+        <br>
+        <br>
+            {% endif %}
             <form class="signup-form" method='POST' action="{% url 'signup' %}">
                 {% csrf_token %}
-                Username:
-                <br />
-                <input type="text" name="username" />
-                <br />
                 Email:
                 <br />
                 <input type="text" name="email" />

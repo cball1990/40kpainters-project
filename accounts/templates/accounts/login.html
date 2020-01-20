@@ -1,5 +1,29 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-
+<div class="container-fluid login-bg">
+    <div class="col-sm-12">
+        <div class="login-container align-middle">
+        <p class="login-form-header pt-3">Sign Up</p>
+        {% if error %}
+        {{ error }}
+        <br>
+        <br>
+        {% endif %}
+            <form class="login-form" method='POST' action="{% url 'login' %}">
+                {% csrf_token %}
+                Email:
+                <br />
+                <input type="text" name="email" />
+                <br />
+                Password:
+                <br />
+                <input type="password" name="password" />
+                <br />
+                <br>
+                <input class="btn btn-info" type="submit" value="Login" />
+            </form>       
+        </div>
+    </div>
+</div>
 {% endblock %}
