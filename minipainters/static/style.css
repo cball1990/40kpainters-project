@@ -72,3 +72,48 @@ input {
     font-size: 26px;
     text-decoration: underline;
 }
+
+
+/*-----home-----*/
+
+.container-coloured {
+    background-color: #f8f9fa;
+}
+
+.jumbo-head {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.jumbo-slogan {
+    font-family: 'PT Sans', sans-serif;
+    color: #6f6b6b;
+}
+
+.jumbo-subtext {
+    font-family: 'PT Sans', sans-serif;
+    color: #6f6b6b;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+}
+
+.main-section-text {
+    font-family: 'PT Sans', sans-serif;
+    color: #6f6b6b;
+}
+
+.white-bg {
+    background-color: white;
+}
+
+.service-img {
+    border: solid 1px #6f6b6b26;
+}
