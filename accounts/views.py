@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import News
 
 def home(request):
-    return render(request, 'accounts/home.html')
+    new = News.objects
+    return render(request, 'accounts/home.html', {"news":new})
 
 def signup(request):
     if request.method == 'POST':
