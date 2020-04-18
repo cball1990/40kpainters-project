@@ -1,0 +1,111 @@
+from .models import order_form
+
+def create_order(request):
+    if request.method == 'POST':
+        order = order_form()
+        order.paintlevel = request.POST['paintlevel']
+        order.paintnum = request.POST['paintnum']
+        order.build = request.POST['build']
+        order.base = request.POST['base']
+        order.comments = request.POST['comments']
+        order.basetype = request.POST['basetype']
+        order.scheme = request.POST['scheme']
+        order.adnum = request.POST['adnum']
+        order.adfirstline = request.POST['adfirstline']
+        order.adtown = request.POST['adtown']
+        order.adpostcode = request.POST['adpostcode']
+        order.user = request.user
+        order.save()
+        return redirect('order/payment.html')
+    else:
+        return render(request, 'order/createorder.html')
+
+
+<select name="paintlevel">
+            <option value="basic">Basic</option>
+            <option value="tabletop">Table top</option>
+            <option value="display">Display</option>
+        </select><br>
+        <input type="number" name="paintnum"><br>
+        <input type="text" name="scheme"><br>
+        <input type="text" name="comments"><br>
+        Yes<input type="radio" name="build" value="0">
+        No<input type="radio" name="build" value="1"><br>
+        <select name="basetype">
+            <option value="sand">Sand</option>
+            <option value="mud">Mud</option>
+            <option value="concrete">Concrete</option>
+            <option value="grass">Grass</option>
+            <option value="rubble">Rubble</option>
+            <option value="snow">Snow</option>
+            <option value="none">None</option>
+        </select><br>
+        <input type="number" name="adnum"><br>
+        <input type="text" name="adfirstline"><br>
+        <input type="text" name="adtown"><br>
+        <input type="text" name="postcode"><br>
+        <br>
+
+
+from django import forms
+from django.forms import ModelForm
+from .models import order_form
+
+class orderform(ModelForm):
+    class Meta:
+        model = order_form
+        comments = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
+        scheme = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
+        fields = ['paintlevel', 'paintnum', 'build', 'base', 'comments', 'basetype',
+         'scheme', 'adnum', 'adfirstline', 'adtown', 'adpostcode']
+
+ {{ form.as_p }}
+
+
+ def create_order(request):
+    form = orderform(request.POST or None)
+    if form.is_valid():
+        form.save()
+    
+        return redirect('order/payment.html')
+    else:
+        context ={
+            'form':form }
+        return render(request, 'order/createorder.html', context)
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+Paint_Choices = (
+    ('basic','Basic'),
+    ('tabletop', 'Table Top'),
+    ('display','Display'),
+)
+
+Base_Choices = (
+    ('sand','Sand'),
+    ('mud', 'Mud'),
+    ('concrete','Concrete'),
+    ('grass','Grass'),
+    ('rubble','Rubble'),
+    ('snow','Snow'),
+    ('none','None')
+)
+
+class order_form(models.Model):
+    paintlevel = models.CharField(max_length=15, choices=Paint_Choices, default='basic')
+    paintnum = models.IntegerField()
+    build = models.BooleanField()
+    base = models.BooleanField()
+    comments = models.CharField(max_length=2000)
+    basetype = models.CharField(max_length=15, choices=Base_Choices, default='none')
+    scheme = models.CharField(max_length=500)
+    adnum = models.CharField(max_length=60)
+    adfirstline = models.CharField(max_length=100)
+    adtown = models.CharField(max_length=70)
+    adpostcode = models.CharField(max_length=8)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+            return self.user

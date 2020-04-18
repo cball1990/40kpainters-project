@@ -1,0 +1,56 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="container-fluid order-bg"
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="order-container">
+                    <h2>Create An Order</h2>
+                    <div class="order-form">
+                            <form method="POST" action="{% url 'create_order' %}">
+                            {% csrf_token %}
+                            <br>
+                            <label class="order-text">Choose your level of paint:  </label>
+                            {{ form.paintlevel }} <br>
+                            <hr>
+                            <label class="order-text">Number of models:  </label>
+                            {{ form.paintnum }} <br>
+                            <hr>
+                            <label class="order-text">Is assembely required? Y/N?:  </label>
+                            {{ form.build }} <br>
+                            <hr>
+                            <label class="order-text">Is Basing required? Y/N?:  </label>
+                            {{ form.base }} <br>
+                            <hr>
+                            <label class="order-text">Choose the type of base required:  </label>
+                            {{ form.basetype }} <br>
+                            <hr>
+                            <label class="order-text">Have you got a particular colour scheme you would like?:  </label><br>
+                            {{ form.scheme }} <br>
+                            <hr>
+                            <label class="order-text">Any additional comments?:  </label><br>
+                            {{ form.comments }} <br>
+                            <hr>
+                            <label class="order-text">House number or name:  </label>
+                            {{ form.adnum }} <br>
+                            <hr>
+                            <label class="order-text">First line of address:  </label>
+                            {{ form.adfirstline }} <br>
+                            <hr>
+                            <label class="order-text">Town/City:  </label>
+                            {{ form.adtown }} <br>
+                            <hr>
+                            <label class="order-text">Postcode:  </label>
+                            {{ form.adpostcode }} <br>
+                            <hr>
+                            <br>
+                            <input class="btn btn-primary" type="submit" value="Create order">
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

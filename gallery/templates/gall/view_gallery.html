@@ -1,0 +1,115 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<div class="container container-coloured">
+    <div class="row pt-3">
+        <div class="col-sm-12">
+            <div class="white-bg service-img">
+                <div class="maingall-header-banner pl-3"><h2>Gallery</h2></div>
+                <p class="main-section-text text-left pl-4 pr-3 pt-3">Find examples of our previous
+                completed jobs to help you select the level of paint finish you would like for your army.
+                Each level of paint will include a brief description of what it includes so you containermake the best choice for you.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-5 pr-3 pl-3">
+        <div class="white-bg service-img">
+                <div class="gall-header-banner  pl-3"><h3>Basic</h3></div>
+                <p class="main-section-text text-left pl-4 pr-3 pt-3">This is the base option, if you want to just get your army ready for
+                tournaments or just to play games at your local club, this is the option for you.This is
+                also our cheapest option so it is perfect for armies with large horde elements. Despite being our
+                most basic option all work is carried out to a high standard.</p> 
+                <p class="main-section-text text-left pl-4">Stages of painting includes:</p>
+                <ul class="main-section-text text-left pl-5">
+                    <li>A high level of basecoating.</li>
+                    <li>Multiple levels of wash applied.</li>
+                    <li>A high standard of drybrushing to pick out all the edges.</li>
+                </ul>
+                <div class="slider-center pl-3 pt-3 pb-3">
+                    <div class="fotorama pl-3 ml-3" data-transition="crossfade" data-width="85%" data-autoplay="true" data-loop="true" data-nav="thumbs">
+                        <img src="{% static 'basic-1.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-2.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-3.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-5.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-6.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-7.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-8.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'basic-9.jpg' %}" width="300px" height="300px"/>
+                    </div>
+                </div>
+        </div> 
+    </div>
+    <div class="row pt-5 pr-3 pl-3">
+        <div class="white-bg service-img">
+                <div class="gall-header-banner  pl-3"><h3>Table Top</h3></div>
+                <p class="main-section-text text-left pl-4 pr-3 pt-3">This is the most popular option, it come with a few extra steps
+                to ensure each model looks life like. We reccomend this option for people who want to play games while having
+                an amazing looking army.</p> 
+                <p class="main-section-text text-left pl-4">Stages of painting includes:</p>
+                <ul class="main-section-text text-left pl-5">
+                    <li>A high level of basecoating with exact colours each model needs.</li>
+                    <li>Pre highlighting applied with an airbrush(this helps give an apperance of light shining down on the models).</li>
+                    <li>A high level of targeted washing.</li>
+                    <li>Edge highlights applied using a drybrush and the standard edge higlighting method.</li>
+                    <li>Weathering will be applied where applicable</li>
+                    <li>Small details like helmet lenses, eyes and teeth etc are all painted.</li>
+                    <li>Transfers are applied if needed.</li>
+                </ul>
+                <div class="slider-center pl-3 pt-3 pb-3">
+                    <div class="fotorama pl-3 ml-3" data-transition="crossfade" data-width="85%" data-autoplay="true" data-loop="true" data-nav="thumbs">
+                        <img src="{% static 'tt-1.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-2.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-3.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-4.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-5.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-6.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-7.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-9.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-10.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'tt-8.jpg' %}" width="300px" height="300px"/>
+                    </div>
+                </div>
+        </div>        
+    </div>
+    <div class="row pt-5 pr-3 pl-3">
+        <div class="white-bg service-img">
+                <div class="gall-header-banner  pl-3"><h3>Display</h3></div>
+                <p class="main-section-text text-left pl-4 pr-3 pt-3">This option is for people who want an army that looks amazing
+                either on the table top or in a display cabinet. With this option only our
+                best artists are put on the job, with decades of experience they know how to make your models
+                look the best they can be with techniques like wet blending and targeted highlight airbrushing.</p> 
+                <p class="main-section-text text-left pl-4">Stages of painting includes:</p>
+                <ul class="main-section-text text-left pl-5">
+                    <li>A high level of basecoating with exact colours each model needs.</li>
+                    <li>Pre highlighting applied with an airbrush(this helps give an apperance of light shining down on the models).</li>
+                    <li>A high level of targeted washing.</li>
+                    <li>Edge highlights applied using a drybrush and the standard edge higlighting method.</li>
+                    <li>Small details like helmet lenses, eyes and teeth etc are all painted.</li>
+                    <li>Weathering will be applied where applicable</li>
+                    <li>Display level will see the most usage of more time consuming techniques including airbrushed glows and effects, stencil usage and wet blending.
+                     The artist will combine a variety of effects and materials to ensure the model is pushed to a highly pleasing 
+                     appearance suitable for primarily being used for display.</li>
+                    <li>Transfers are applied if needed.</li>
+                </ul>
+                <div class="slider-center pl-3 pt-3 pb-3">
+                    <div class="fotorama pl-3 ml-3" data-transition="crossfade" data-width="85%" data-autoplay="true" data-loop="true" data-nav="thumbs">
+                        <img src="{% static 'disp-1.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-2.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-3.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-4.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-5.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-6.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-7.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-8.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-9.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-10.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-11.jpg' %}" width="300px" height="300px"/>
+                        <img src="{% static 'disp-12.jpg' %}" width="300px" height="300px"/>
+                    </div>
+                </div>
+        </div>    
+    </div>
+</div>
+
+{% endblock %}

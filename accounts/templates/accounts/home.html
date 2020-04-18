@@ -44,16 +44,16 @@
     <p class="lead jumbo-slogan">We paint, build and base models at a competitive price.</p>
     <hr class="my-4">
     <p class="jumbo-subtext">Go to our order page to see the options and get a cost for your project</p>
-    <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+    <a class="btn btn-info btn-lg" href="{% url 'create_order' %}" role="button">Learn more</a>
     </div>
     <br>
 </div>
     <div class="container container-coloured">
     <div class="row">
         <div class="col-sm-12">
-            <div class="white-bg service-img pl-3 pt-3 pb-3">
-                <div class="header-banner"><h2>What We Offer</h2></div>
-                <p class="main-section-text text-left pl-4 pr-3">All work is carried out to a high standard by our professional team of highly skilled painters.
+            <div class="white-bg service-img">
+                <div class="header-banner  pl-3"><h2>What We Offer</h2></div>
+                <p class="main-section-text text-left pl-4 pr-3 pt-3">All work is carried out to a high standard by our professional team of highly skilled painters.
                  From building to baseing we offer all services you will need for every step of your project, choose from 3 
                  different paint levels to suit your needs, all paints, washes and glues are all Games Workshop official products
                   so you can rest assured we only use top quality materials. You can track
@@ -64,7 +64,7 @@
     <br>
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="white-bg pl-3 pt-3 mb-3 service-img">
+                <div class="white-bg pt-3 mb-3 service-img">
                 <svg class="mx-auto d-block rounded" width="270" height="270" xmlns="http://www.w3.org/2000/svg" role="img"><image href="{% static 'main-page-1.jpg' %}"></svg>
                 <br>
                 <div class="header-banner">
@@ -72,7 +72,7 @@
                 </div>
                 <p class="main-section-text text-left pl-4 pr-3">Need your models build and primed before painting? Let us do the work for you at a low cost. All work is carried out to a high standard.</p>
                 </div>
-                <div class="white-bg pl-3 pt-3 service-img">
+                <div class="white-bg pt-3 service-img">
                 <svg class="mx-auto d-block rounded" width="270" height="270" xmlns="http://www.w3.org/2000/svg" role="img"><image href="{% static 'main-page-3.jpg' %}"></svg>
                 <br>
                 <div class="header-banner">
@@ -107,8 +107,8 @@
                         {% for news in news.all %}
                             <h4>{{ news.title }}</h4>
                             <p class="main-section-text">{{ news.pub_date_pretty }}</p>
+                            <img src="{{ news.image.url }}" height="200" width="200">
                             <p class="main-section-text">{{ news.summary }}</p>
-                            <img src="{{ news.image.url }}">
                             <hr>
                             <br>
                         {% endfor %}

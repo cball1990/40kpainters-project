@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|Roboto:700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <title>40kPainters</title>
   </head>
   <body>
@@ -22,8 +25,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
-                    <a class="nav-item nav-link" href="">Order</a>
-                    <a class="nav-item nav-link" href="">Gallery</a>
+                    <a class="nav-item nav-link" href="{% url 'create_order' %}">Order</a>
+                    <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
                     <a class="nav-item nav-link" href="">Reviews</a>
                     <a class="nav-item nav-link" href="">Account</a>
                       <form id="logout" method="POST" action="{% url 'logout' %}">
@@ -36,8 +39,8 @@
                     <input type="hidden">
                     </form>
                     {% else %}
-                    <a class="nav-item nav-link" href="">Order</a>
-                    <a class="nav-item nav-link" href="">Gallery</a>
+                    <a class="nav-item nav-link" href="{% url 'create_order' %}">Order</a>
+                    <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
                     <a class="nav-item nav-link" href="">Reviews</a>
                     <a class="nav-item nav-link" href="{% url 'signup' %}">Sign up/Login</a>
                     {% endif %}

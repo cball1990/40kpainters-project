@@ -4,7 +4,7 @@
 <div class="container-fluid login-bg">
     <div class="col-sm-12">
         <div class="login-container align-middle">
-        <p class="login-form-header pt-3">Sign Up</p>
+        <p class="login-form-header pt-3">Login</p>
         {% if error %}
         {{ error }}
         <br>
@@ -22,6 +22,9 @@
                 <br />
                 <br>
                 <input class="btn btn-info" type="submit" value="Login" />
+                <br>
+                <br>
+                <p class="text-muted">Need an account?<br> <a href="{% url 'signup' %}">Signup</a></p>
             </form>       
         </div>
     </div>

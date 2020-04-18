@@ -16,7 +16,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DB_PASS = os.getenv('DB_PASS')
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'order',
+    'gallery',
+    'crispy_forms',
+    'review',
 ]
 
 MIDDLEWARE = [
