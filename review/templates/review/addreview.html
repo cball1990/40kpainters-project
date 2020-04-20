@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<div class="container-fluid review-bg">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="review-form-container">
+             <p class="login-form-header pt-3">Add a review</p>
+                {% if error %}
+                {{ error }}
+                <br>
+                <br>
+                {% endif %}
+                <form class="review-form" method='POST' action="{% url 'addreview' %}">
+                {% csrf_token %}
+                
+                <p class="text-muted">Need an account?<br> <a href="{% url 'signup' %}">Signup</a></p>
+            </form>       
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

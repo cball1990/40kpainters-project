@@ -12,39 +12,59 @@
                             {% csrf_token %}
                             <br>
                             <label class="order-text">Choose your level of paint:  </label>
-                            {{ form.paintlevel }} <br>
+                            <select name="paintlevel" />
+                            <option value="basic">Basic</option>
+                            <option value="tabletop">Tabletop</option>
+                            <option value="display">Display</option>
+                            </select><br>
                             <hr>
                             <label class="order-text">Number of models:  </label>
-                            {{ form.paintnum }} <br>
+                            <input type="number" name="paintnum" /> <br>
                             <hr>
                             <label class="order-text">Is assembely required? Y/N?:  </label>
-                            {{ form.build }} <br>
+                            <select name="build" />
+                            <option value="True">Yes</option>
+                            <option value="False">No</option>
+                            </select><br>
                             <hr>
                             <label class="order-text">Is Basing required? Y/N?:  </label>
-                            {{ form.base }} <br>
+                            <select name="base" />
+                            <option value="True">Yes</option>
+                            <option value="False">No</option>
+                            </select><br>
                             <hr>
                             <label class="order-text">Choose the type of base required:  </label>
-                            {{ form.basetype }} <br>
+                            <select name="basetype" />
+                            <option value="none">none</option>
+                            <option value="sand">Sand</option>
+                            <option value="mud">Mud</option>
+                            <option value="concrete">Concrete</option>
+                            <option value="grass">Grass</option>
+                            <option value="rubble">Rubble</option>
+                            <option value="snow">Snow</option>
+                            </select><br>
                             <hr>
                             <label class="order-text">Have you got a particular colour scheme you would like?:  </label><br>
-                            {{ form.scheme }} <br>
+                            <textarea rows='10' cols="55" name="scheme"> 
+                            </textarea><br>
                             <hr>
                             <label class="order-text">Any additional comments?:  </label><br>
-                            {{ form.comments }} <br>
+                            <textarea rows='10' cols="55" name="comments"> 
+                            </textarea><br>
                             <hr>
                             <label class="order-text">House number or name:  </label>
-                            {{ form.adnum }} <br>
+                            <input type="number" name="adnum" /> <br>
                             <hr>
                             <label class="order-text">First line of address:  </label>
-                            {{ form.adfirstline }} <br>
+                            <input type="text" name="adfirstline" /> <br>
                             <hr>
                             <label class="order-text">Town/City:  </label>
-                            {{ form.adtown }} <br>
+                            <input type="text" name="adtown" /> <br>
                             <hr>
                             <label class="order-text">Postcode:  </label>
-                            {{ form.adpostcode }} <br>
+                            <input type="text" name="adpostcode" /> <br>
                             <hr>
-                            <br>
+                            <input class="hide" type="text" name="user" /> <br>
                             <input class="btn btn-primary" type="submit" value="Create order">
                             </form>
                     </div>

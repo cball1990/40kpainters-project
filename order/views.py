@@ -8,15 +8,25 @@ from .models import order_form
 
 @login_required
 def create_order(request):
-    form = orderform(request.POST or None)
-    if form.is_valid():
-        form.save()
-    
-        return redirect('order/payment.html')
+    if request.method == 'POST':
+        order = order_form()
+        order.paintlevel = request.POST['paintlevel']
+        order.paintnum = request.POST['paintnum']
+        order.build = request.POST['build']
+        order.base = request.POST['base']
+        order.comments = request.POST['comments']
+        order.basetype = request.POST['basetype']
+        order.scheme = request.POST['scheme']
+        order.adnum = request.POST['adnum']
+        order.adfirstline = request.POST['adfirstline']
+        order.adtown = request.POST['adtown']
+        order.adpostcode = request.POST['adpostcode']
+        order.user = request.user
+        order.save()
+        return render(request, 'order/createorder.html')
     else:
-        context ={
-            'form':form }
-        return render(request, 'order/createorder.html', context)
+        return render(request, 'order/createorder.html')
+    
 
 def calculate_total(request):
     costs = {"Basic": 3,

@@ -196,3 +196,46 @@ h2 {
         width: 80%;
     }
 }
+
+
+/*------review------*/
+
+.review-cont {
+    border: solid 1px #6f6b6b26;
+    box-shadow: -5px 6px 13px -5px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    padding-left: 20px;
+}
+
+.review image {
+    border: solid 1px #6f6b6b26;
+}
+
+.review-form {
+    font-family: 'PT Sans', sans-serif;
+    color: #6f6b6b;
+}
+
+.review-form-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f8f9fa;
+    width: 50%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: -12px 13px 17px 2px rgba(0, 0, 0, 0.75);
+    position: relative;
+    top: 100px;
+}
+
+.review-bg {
+    background-image: linear-gradient(to bottom, rgba(247, 255, 128, 0.4), rgba(62, 255, 59, 0.48)), url("review-bg.jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hide {
+    visibility: hidden;
+}

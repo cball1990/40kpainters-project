@@ -27,7 +27,7 @@
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="{% url 'create_order' %}">Order</a>
                     <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
-                    <a class="nav-item nav-link" href="">Reviews</a>
+                    <a class="nav-item nav-link" href="{% url 'reviews' %}">Reviews</a>
                     <a class="nav-item nav-link" href="">Account</a>
                       <form id="logout" method="POST" action="{% url 'logout' %}">
                       {% csrf_token %}
@@ -41,7 +41,7 @@
                     {% else %}
                     <a class="nav-item nav-link" href="{% url 'create_order' %}">Order</a>
                     <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
-                    <a class="nav-item nav-link" href="">Reviews</a>
+                    <a class="nav-item nav-link" href="{% url 'reviews' %}">Reviews</a>
                     <a class="nav-item nav-link" href="{% url 'signup' %}">Sign up/Login</a>
                     {% endif %}
                     </div>

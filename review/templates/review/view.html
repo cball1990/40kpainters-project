@@ -1,0 +1,34 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<br>
+<div class="container container-coloured">
+    <div class="row">
+        <div class="col-sm-12">
+        <br>
+            <div>
+                <a href='{% url "addreview" %}'>
+                    <button type="button" class="btn btn-info">Add a Review</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% for reviews in review %}
+    <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="review-cont">
+                <br>
+                    <h5>User: {{ reviews.name }}</h5>
+                    <p class="main-section-text">Score: {{ reviews.score }}/5</p>
+                    <p class="main-section-text">Published: {{ reviews.pub_date_pretty }}</p>
+                    <p class="main-section-text">{{ reviews.body }}</p>
+                    <img class="review image" src="{{ reviews.img.resized.url }}">
+                    <br>
+                    <br>
+                </div>
+                <hr>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock%}

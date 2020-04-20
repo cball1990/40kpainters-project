@@ -51,13 +51,7 @@ from django import forms
 from django.forms import ModelForm
 from .models import order_form
 
-class orderform(ModelForm):
-    class Meta:
-        model = order_form
-        comments = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
-        scheme = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
-        fields = ['paintlevel', 'paintnum', 'build', 'base', 'comments', 'basetype',
-         'scheme', 'adnum', 'adfirstline', 'adtown', 'adpostcode']
+
 
  {{ form.as_p }}
 
@@ -65,17 +59,15 @@ class orderform(ModelForm):
  def create_order(request):
     form = orderform(request.POST or None)
     if form.is_valid():
+        form.user = request.user
         form.save()
     
-        return redirect('order/payment.html')
+        return render(request, 'order/createorder.html', {"form": form})
     else:
         context ={
             'form':form }
         return render(request, 'order/createorder.html', context)
 
-
-from django.db import models
-from django.contrib.auth.models import User
 
 Paint_Choices = (
     ('basic','Basic'),
@@ -91,21 +83,31 @@ Base_Choices = (
     ('rubble','Rubble'),
     ('snow','Snow'),
     ('none','None')
-)
+) 
+class order_form(forms.Form):
+    paintlevel = forms.ChoiceField(choices=Paint_Choices, initial='basic')
+    paintnum = forms.IntegerField()
+    build = forms.BooleanField()
+    base = forms.BooleanField()
+    comments = forms.CharField(max_length=2000)
+    basetype = forms.ChoiceField(choices=Base_Choices, initial='none')
+    scheme = forms.CharField(max_length=500, widget=forms.Textarea(
+        attrs={
+            "rows":20,
+             "columns": 10
+            }
+            ))
+    adnum = forms.CharField(max_length=60)
+    adfirstline = forms.CharField(max_length=100)
+    adtown = forms.CharField(max_length=70)
+    adpostcode = forms.CharField(max_length=8)
+    user = forms.ForeignKey(User, on_delete=models.CASCADE, widget=forms.HiddenInput())
 
-class order_form(models.Model):
-    paintlevel = models.CharField(max_length=15, choices=Paint_Choices, default='basic')
-    paintnum = models.IntegerField()
-    build = models.BooleanField()
-    base = models.BooleanField()
-    comments = models.CharField(max_length=2000)
-    basetype = models.CharField(max_length=15, choices=Base_Choices, default='none')
-    scheme = models.CharField(max_length=500)
-    adnum = models.CharField(max_length=60)
-    adfirstline = models.CharField(max_length=100)
-    adtown = models.CharField(max_length=70)
-    adpostcode = models.CharField(max_length=8)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-            return self.user
+
+    class orderform(forms.ModelForm):
+    class Meta:
+        model = order_form
+        widgets = {'user': forms.HiddenInput()}
+        fields = ['paintlevel', 'paintnum', 'build', 'base', 'comments', 'basetype',
+         'scheme', 'adnum', 'adfirstline', 'adtown', 'adpostcode', 'user']
