@@ -3,24 +3,24 @@ from django.contrib.auth.decorators import login_required
 from django.conf.urls.static import static
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .models import add_review
+from .models import add_rev
 
 def reviews(request):
-    reviews = add_review.objects.all()
+    reviews = add_rev.objects.all()
     return render(request, 'review/view.html', {'review':reviews})
 
 @login_required
 def addreview(request):
     if request.method == 'POST':
-        if request.POST['body'] and request.POST['url'] and request.FILES['image']:
-            review = add_review()
+        if request.POST['body'] and request.POST['score']:
+            review = add_rev()
             review.name = request.user
             review.body = request.POST['body']
-            review.pub_date = request.POST['pub_date']
-            review.image = request.POST['image']
+            review.pub_date = timezone.datetime.now()
+            review.img = request.FILES['image']
             review.score = request.POST['score']
             review.save()
-            return redirect(request, 'review/reviews.html')
+            return redirect('reviews')
         else:   
             return render(request,'review/addreview.html', {'error':'All Fields Are Required'})
     else:

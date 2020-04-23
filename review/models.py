@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from stdimage import StdImageField, JPEGField
 
-class add_review(models.Model):
+class add_rev(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     body = models.TextField(max_length=2000)

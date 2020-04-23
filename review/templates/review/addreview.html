@@ -12,8 +12,20 @@
                 {% endif %}
                 <form class="review-form" method='POST' action="{% url 'addreview' %}">
                 {% csrf_token %}
-                
-                <p class="text-muted">Need an account?<br> <a href="{% url 'signup' %}">Signup</a></p>
+                <input class="hide" type="text" name="name" /> <br>
+                <label class="order-text">Please type your review here giving as much details as possible:  </label><br>
+                <textarea rows='10' cols="45" name="body"></textarea>
+                <br>
+                <hr>
+                <label class="order-text">Please upload an image of your order:  </label><br>
+                <input type="file" name="image" />
+                <br>
+                <hr>
+                <label class="order-text">Please give your score out of 5 for how happy you was with our service:  </label>
+                <input type="number" name="score" />/5 
+                <br>
+                <hr>
+                <input class="btn btn-primary" type="submit" value="Add Review">
             </form>       
             </div>
         </div>
