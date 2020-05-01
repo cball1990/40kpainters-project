@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import News
+from order.models import order_form
 
 def home(request):
     new = News.objects
@@ -40,5 +41,12 @@ def logout(request):
         auth.logout(request)
         return redirect('home')
 
+@login_required
 def account(request):
-    return render(request, 'accounts/account.html')
+    User = request.user
+    orders = order_form.objects.all()
+    if User.username == 'admin':
+        return render(request, 'accounts/adminaccount.html', {'order':orders})
+    else:
+        return render(request, 'accounts/account.html')
+

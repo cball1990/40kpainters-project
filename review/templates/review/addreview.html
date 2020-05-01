@@ -10,7 +10,7 @@
                 <br>
                 <br>
                 {% endif %}
-                <form class="review-form" method='POST' action="{% url 'addreview' %}">
+                <form class="review-form" method='POST' action="{% url 'addreview' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input class="hide" type="text" name="name" /> <br>
                 <label class="order-text">Please type your review here giving as much details as possible:  </label><br>

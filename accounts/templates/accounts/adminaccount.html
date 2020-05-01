@@ -1,0 +1,32 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<div class="container container-coloured">
+{% for orders in order %}
+<br>
+    <div class="header-banner pl-3"><h2>Order For: {{ orders.user }}</h2></div>
+    <div class="container">
+        <div class="row  white-bg service-img">
+            <div class="col-sm-12 col-md-6">
+                    
+                    <p class="main-section-text">Paint Level: {{ orders.paintlevel }}</p>
+                    <p class="main-section-text">Number Of Models: {{ orders.paintnum }}</p>
+                    <p class="main-section-text">Building Required: {{ orders.build }}</p>
+                    <p class="main-section-text">Basing Required: {{ orders.base }}</p>
+                    <p class="main-section-text">Type Of Basing If Applicable: {{ orders.basetype }}</p>
+                    <p class="main-section-text"> Colour Scheme:</p>
+                    <p class="main-section-text border border-secondary pl-1">{{ orders.scheme }}</p>
+                    <p class="main-section-text">Comments:</p>
+                    <p class="main-section-text border border-secondary pl-1">{{ orders.comments }}</p>
+            </div>
+             <div class="col-sm-12 col-md-6">
+                    <p>{{ orders.adnum }}</p>
+                    <p>{{ orders.adfirstline }}</p>
+                    <p>{{ orders.adtown }}</p>
+                    <p>{{ orders.adpostcode }}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

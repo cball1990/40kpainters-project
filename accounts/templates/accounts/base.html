@@ -28,7 +28,7 @@
                     <a class="nav-item nav-link" href="{% url 'create_order' %}">Order</a>
                     <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
                     <a class="nav-item nav-link" href="{% url 'reviews' %}">Reviews</a>
-                    <a class="nav-item nav-link" href="">Account</a>
+                    <a class="nav-item nav-link" href="{% url 'account' %}">Account</a>
                       <form id="logout" method="POST" action="{% url 'logout' %}">
                       {% csrf_token %}
                       <input type="hidden">
