@@ -19,10 +19,24 @@
                     <p class="main-section-text border border-secondary pl-1">{{ orders.comments }}</p>
             </div>
              <div class="col-sm-12 col-md-6">
-                    <p>{{ orders.adnum }}</p>
-                    <p>{{ orders.adfirstline }}</p>
-                    <p>{{ orders.adtown }}</p>
-                    <p>{{ orders.adpostcode }}</p>
+                    <p class="main-section-text">House name/number: {{ orders.adnum }}</p>
+                    <p class="main-section-text">First line of address: {{ orders.adfirstline }}</p>
+                    <p class="main-section-text">Town/City: {{ orders.adtown }}</p>
+                    <p class="main-section-text">Postcode: {{ orders.adpostcode }}</p>
+                    <p class="main-section-text">Order Status: {{ orders.status }}</p>
+                    <form method="POST" action="{% url 'statusupdate' %}">
+                            {% csrf_token %}
+                            <br>
+                            <select name="status" />
+                            <option value="ordered">Ordered</option>
+                            <option value="painted">Painting Finished</option>
+                            <option value="basing">Basing Complete</option>
+                            <option value="finishing">Final Touches</option>
+                            <option value="complete">Waiting To Be Shipped</option>
+                            <option value="shipped">Shipped</option>
+                            </select>
+                            <input class="btn btn-primary" type="submit" value="Update">
+                    </form>
             </div>
         </div>
     </div>

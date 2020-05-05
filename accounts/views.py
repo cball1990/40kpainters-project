@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import News
-from order.models import order_form
+from order.models import orderForm
 
 def home(request):
     new = News.objects
@@ -44,9 +44,16 @@ def logout(request):
 @login_required
 def account(request):
     User = request.user
-    orders = order_form.objects.all()
+    orders = orderForm.objects.all()
     if User.username == 'admin':
         return render(request, 'accounts/adminaccount.html', {'order':orders})
     else:
         return render(request, 'accounts/account.html')
 
+@login_required
+def updatestatus(request, orderForm_id):
+    if request.method == 'POST':
+        updateorder = get_object_or_404(orderForm, pk=orderForm_id)
+        updateorder.status = request.POST['status']
+        updateorder.save()
+        return render(request, 'accounts/adminaccount.html')

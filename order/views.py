@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.conf.urls.static import static
 from django.contrib.auth.models import User
-from .models import order_form
+from .models import orderForm
 
 
 @login_required
 def create_order(request):
     if request.method == 'POST':
-        order = order_form()
+        order = orderForm()
         order.paintlevel = request.POST['paintlevel']
         order.paintnum = request.POST['paintnum']
         order.build = request.POST['build']
@@ -20,6 +20,7 @@ def create_order(request):
         order.adfirstline = request.POST['adfirstline']
         order.adtown = request.POST['adtown']
         order.adpostcode = request.POST['adpostcode']
+        order.status = request.POST['status']
         order.user = request.user
         order.save()
         return render(request, 'order/createorder.html')

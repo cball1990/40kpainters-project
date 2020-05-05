@@ -17,8 +17,16 @@ Base_Choices = (
     ('snow','Snow'),
     ('none','None')
 )
+Status_Choices= (
+    ('ordered','Ordered'),
+    ('painted','Painting Complete'),
+    ('basing','Basing Complete'),
+    ('finishing','Final Touches'),
+    ('complete','Waiting To Be Shipped'),
+    ('shipped','Shipped')
 
-class order_form(models.Model):
+)
+class orderForm(models.Model):
     paintlevel = models.CharField(max_length=15, choices=Paint_Choices, default='basic')
     paintnum = models.IntegerField()
     build = models.BooleanField()
@@ -31,6 +39,7 @@ class order_form(models.Model):
     adtown = models.CharField(max_length=70)
     adpostcode = models.CharField(max_length=8)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=30, choices=Status_Choices, default='ordered')
 
     def __str__(self):
             return str(self.user)
