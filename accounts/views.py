@@ -49,7 +49,8 @@ def account(request,):
     if User.username == 'admin':
         return render(request, 'accounts/adminaccount.html', {'order':orders})
     else:
-        return render(request, 'accounts/account.html')
+        orders = orderForm.objects.filter(user=request.user)
+        return render(request, 'accounts/account.html', {'order':orders})
 
 @login_required
 def updatestatus(request, orderForm_id):

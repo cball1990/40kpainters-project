@@ -1,5 +1,42 @@
 {% extends 'accounts/base.html' %}
-
 {% block content %}
+<div class="container container-coloured">
+<br>
+<div class="row">
+        <div class="col-sm-12">
+            <div class="button-banner pt-3">
+               <h2>Orders</h2>
+            </div>
+        </div>
+    </div>
+{% for orders in order %}
+<br>
+    <div class="header-banner pl-3"><h2>Order For: {{ orders.user }}</h2></div>
+    <div class="container">
+        <div class="row  white-bg service-img">
+            <div class="col-sm-12 col-md-6">
+                    
+                    <p class="main-section-text">Paint Level: {{ orders.paintlevel }}</p>
+                    <p class="main-section-text">Number Of Models: {{ orders.paintnum }}</p>
+                    <p class="main-section-text">Building Required: {{ orders.build }}</p>
+                    <p class="main-section-text">Basing Required: {{ orders.base }}</p>
+                    <p class="main-section-text">Type Of Basing If Applicable: {{ orders.basetype }}</p>
+                    <p class="main-section-text"> Colour Scheme:</p>
+                    <p class="main-section-text border border-secondary pl-1">{{ orders.scheme }}</p>
+                    <p class="main-section-text">Comments:</p>
+                    <p class="main-section-text border border-secondary pl-1">{{ orders.comments }}</p>
+            </div>
+             <div class="col-sm-12 col-md-6">
+                    <p class="main-section-text">Order Date: {{ orders.orderdate }}</p>
+                    <p class="main-section-text">House name/number: {{ orders.adnum }}</p>
+                    <p class="main-section-text">First line of address: {{ orders.adfirstline }}</p>
+                    <p class="main-section-text">Town/City: {{ orders.adtown }}</p>
+                    <p class="main-section-text">Postcode: {{ orders.adpostcode }}</p>
+                    <p class="main-section-text">Order Status: {{ orders.status }}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
 
 {% endblock %}
