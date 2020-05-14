@@ -6,5 +6,6 @@ urlpatterns = [
     path('signup', views.signup, name="signup"),
     path('logout', views.logout, name="logout"),
     path('account/', views.account, name="account"),
-    path('update', views.updatestatus, name="statusupdate"),
+    path('update/<int:orderForm_id>', views.updatestatus, name="statusupdate"),
+    path('addnews', views.addnewsitem, name='addnews'),
 ]

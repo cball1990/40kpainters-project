@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.conf.urls.static import static
 from django.contrib.auth.models import User
+from django.utils import timezone
 from .models import orderForm
 
 
@@ -22,6 +23,7 @@ def create_order(request):
         order.adpostcode = request.POST['adpostcode']
         order.status = request.POST['status']
         order.user = request.user
+        order.orderdate = timezone.datetime.now()
         order.save()
         return render(request, 'order/createorder.html')
     else:

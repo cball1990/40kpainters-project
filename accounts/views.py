@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.utils import timezone
 from .models import News
 from order.models import orderForm
 
@@ -42,9 +43,9 @@ def logout(request):
         return redirect('home')
 
 @login_required
-def account(request):
+def account(request,):
     User = request.user
-    orders = orderForm.objects.all()
+    orders = orderForm.objects.all().order_by('-orderdate')
     if User.username == 'admin':
         return render(request, 'accounts/adminaccount.html', {'order':orders})
     else:
@@ -52,8 +53,25 @@ def account(request):
 
 @login_required
 def updatestatus(request, orderForm_id):
+    orders = orderForm.objects.all().order_by('-orderdate')
     if request.method == 'POST':
         updateorder = get_object_or_404(orderForm, pk=orderForm_id)
         updateorder.status = request.POST['status']
         updateorder.save()
-        return render(request, 'accounts/adminaccount.html')
+        return render(request, 'accounts/adminaccount.html', {'order':orders})
+
+@login_required
+def addnewsitem(request):
+    if request.method == 'POST':
+        if request.POST['title'] and request.POST['body'] and request.POST['image']:
+            news = News()
+            news.title = request.POST['title']
+            news.pub_date = timezone.datetime.now()
+            news.body = request.POST['body']
+            news.image = request.FILES['image']
+            news.save()
+            return redirect('account')
+        else:
+            return render(request,'accounts/adminaccount.html', {'error':'All Fields Are Required'})
+    else:
+        return render(request, 'accounts/addnews.html')    
