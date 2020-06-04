@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="container container-coloured">
+<br>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-sm-12 col-md-4">
+                <div class="white-bg pt-3 mb-3 product-cont">
+                    <img class="mx-auto d-block rounded" src="{{ product.img.resized.url }}">
+                    <br>
+                    <div class="header-banner">
+                    <h3 class="text-left pl-3">{{ product.name }}</h3>
+                    </div>
+                    <br>
+                    <p class="main-section-text text-left pl-4 pr-3">{{ product.description }}</p>
+                    <button class="btn btn-success ml-3">Add To Cart  £{{ product.price }}</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
