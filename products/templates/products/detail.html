@@ -2,9 +2,7 @@
 
 {% block content %}
 <div class="container container-coloured">
-<br>
-    <div class="row">
-        {% for product in products %}
+<div class="row">
             <div class="col-sm-12 col-md-4">
                 <div class="white-bg pt-3 mb-3 product-cont">
                     <img class="mx-auto d-block rounded" src="{{ product.img.resized.url }}">
@@ -13,14 +11,12 @@
                     <h3 class="text-left pl-3">{{ product.name }}</h3>
                     </div>
                     <br>
-                    <p class="main-section-text text-left pl-4 pr-3">{{ product.description }}</p>
-                    <form id="detail{{ product.id }}" method="POST" action="{% url 'detail' product.id %}">
+                    <form id="update{{ product.id }}" method="POST" action="{% url 'addtocart' product.id %}">
                     {% csrf_token %}
-                    <a href="javascript:{document.getElementById('detail{{ product.id }}').submit()}"><button class="btn btn-success ml-3">More Details</button></a>
+                    <a href="javascript:{document.getElementById('update{{ product.id }}').submit()}"><button class="btn btn-success ml-3">Add To Cart</button></a>
                     </form>
                 </div>
             </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

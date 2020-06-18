@@ -15,10 +15,11 @@ class Products (models.Model):
 
 class ProductItem(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
    
 
 
-class order(models.Model):
+class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(ProductItem)
     orderdate = models.DateTimeField(default=timezone.now)
