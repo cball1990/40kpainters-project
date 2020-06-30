@@ -3,19 +3,23 @@
 {% block content %}
 <div class="container container-coloured">
 <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="white-bg pt-3 mb-3 product-cont">
-                    <img class="mx-auto d-block rounded" src="{{ product.img.resized.url }}">
-                    <br>
-                    <div class="header-banner">
+            <div class="col-sm-12 col-md-6 detail-height">
+                <div class="white-bg pt-3 mb-3">
+                <div class="header-banner-product">
                     <h3 class="text-left pl-3">{{ product.name }}</h3>
-                    </div>
-                    <br>
+                    <img class="mx-auto d-block rounded img-fluid" src="{{ product.img.large.url }}">
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 detail-height">
+                <div class="pt-5">
+                    <p class="main-section-text text-left pl-4 pr-3">{{ product.description }}</p>
+                    <p class="main-section-text text-left pl-4 pr-3">Price: £{{ product.price }}</p>
+                </div>
                     <form id="update{{ product.id }}" method="POST" action="{% url 'addtocart' product.id %}">
                     {% csrf_token %}
                     <a href="javascript:{document.getElementById('update{{ product.id }}').submit()}"><button class="btn btn-success ml-3">Add To Cart</button></a>
                     </form>
-                </div>
             </div>
     </div>
 </div>

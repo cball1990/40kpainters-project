@@ -331,3 +331,14 @@ input {
         height: auto;
     }
 }
+
+.header-banner-product {
+    max-width: 600px;
+    background-color: #6f6b6b;
+    color: white;
+    height: 40px;
+}
+
+.detail-height {
+    height: 600px;
+}

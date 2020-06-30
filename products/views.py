@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Products, ProductItem, Order
 
+@login_required
 def productpage(request):
     context = {
         'products': Products.objects.all()
