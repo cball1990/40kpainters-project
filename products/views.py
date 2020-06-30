@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.utils import timezone
-from .models import Products, ProductItem, Order
+from .models import Products
 
 @login_required
 def productpage(request):
@@ -15,10 +14,3 @@ def productdetail(request, Products_id):
     product = get_object_or_404(Products, pk=Products_id)
     return render(request, 'products/detail.html', {'product':product})
 
-def add_to_cart(request, Products_id):
-    item = get_object_or_404(Products, pk=Products_id)
-    order_item = ProductItem.objects.create(product=item)
-    orderdate = timezone.now()
-    order = Order.objects.create(user=request.user, orderdate=orderdate)
-    order.items.add(order_item)
-    return redirect("products")

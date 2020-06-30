@@ -16,10 +16,15 @@
                     <p class="main-section-text text-left pl-4 pr-3">{{ product.description }}</p>
                     <p class="main-section-text text-left pl-4 pr-3">Price: £{{ product.price }}</p>
                 </div>
-                    <form id="update{{ product.id }}" method="POST" action="{% url 'addtocart' product.id %}">
+                <form method="post" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
-                    <a href="javascript:{document.getElementById('update{{ product.id }}').submit()}"><button class="btn btn-success ml-3">Add To Cart</button></a>
-                    </form>
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </span>
+                    </div>
+                </form>   
             </div>
     </div>
 </div>

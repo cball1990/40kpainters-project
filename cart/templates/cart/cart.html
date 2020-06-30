@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<div class="container container-coloured  pl-5 pr-5 pt-5">
+<div class="row row-flex">
+    {% for item in cart_items %}
+    
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display white-bg border border-dark pt-3">
+        
+        <img class="mx-auto d-block rounded img-fluid" src="{{ item.product.img.resized.url }}">
+        
+        <div class="pt-3">
+            <div class="header-banner">
+            <h3>{{ item.product.name }}</h3>
+            </div>
+            <p class="main-section-text pt-3">{{ item.product.description }}</p>
+            <p>£{{ item.product.price }}</p>
+            <p>
+                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">Qty</div>
+                            <input name="quantity" type="number" min="0" max="999" class="form-control">
+                            <div class="input-group-addon pl-3 pr-3">In Cart:{{item.quantity}}</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Amend</button>
+                </form>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row pt-5 pb-3">
+    <h4>Total:</h4>
+    <p class="pt-1 pr-3"><span class="fas fa-pound-sign"></span>{{ total }}</p>
+    <a href="/" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+</div>
+</div>
+{% endblock %}
