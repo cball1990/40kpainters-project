@@ -2,6 +2,15 @@ from django.db import models
 from products.models import Products
 from django.contrib.auth.models import User
 
+Status_Choices= (
+    ('ordered','Ordered'),
+    ('paid','Paid')
+    ('painted','Painting Complete'),
+    ('basing','Basing Complete'),
+    ('finishing','Final Touches'),
+    ('complete','Waiting To Be Shipped'),
+    ('shipped','Shipped')
+
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
@@ -23,6 +32,7 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE, null=False)
     quantity = models.IntegerField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=30, choices=Status_Choices, default='ordered')
 
     def __str__(self):
         return "{0} {1} @ {2}".format(
