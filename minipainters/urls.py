@@ -13,6 +13,8 @@ urlpatterns = [
     path('product/', include('products.urls')),
     #cart
     path('cart/', include('cart.urls')),
+    #checkout
+    path('checkout/', include('checkout.urls')),
     #order
     path('order/', include('order.urls')),
     #gallery

@@ -12,6 +12,7 @@ python-dotenv = "*"
 pillow = "*"
 django-crispy-forms = "*"
 django-stdimage = "*"
+stripe = "*"
 
 [requires]
 python_version = "3.6"

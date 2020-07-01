@@ -14,6 +14,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 SECRET_KEY = os.getenv('SECRET_KEY')
 DB_PASS = os.getenv('DB_PASS')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     'stdimage',
     'products',
     'cart',
+    'checkout',
 ]
 
 MIDDLEWARE = [
