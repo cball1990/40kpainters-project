@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 
 Status_Choices= (
     ('ordered','Ordered'),
-    ('paid','Paid')
+    ('paid','Paid'),
     ('painted','Painting Complete'),
     ('basing','Basing Complete'),
     ('finishing','Final Touches'),
     ('complete','Waiting To Be Shipped'),
     ('shipped','Shipped')
+)
 
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
@@ -37,3 +38,4 @@ class OrderLineItem(models.Model):
     def __str__(self):
         return "{0} {1} @ {2}".format(
             self.quantity, self.product.name, self.product.price)
+

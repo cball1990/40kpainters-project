@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import stripe
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

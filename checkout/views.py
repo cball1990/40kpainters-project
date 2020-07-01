@@ -27,12 +27,13 @@ def checkout(request):
             total = 0
             for id, quantity in cart.items():
                 product = get_object_or_404(Products, pk=id)
+                user = request.user
                 total += quantity * product.price
                 order_line_item = OrderLineItem(
                     order=order,
                     product=product,
-                    quantity=quantity
-                    user=request.user
+                    quantity=quantity,
+                    user=user
                 )
                 order_line_item.save()
             
@@ -49,8 +50,8 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
-                 order_line_item = OrderLineItem(
-                     status=paid
+                order_line_item = OrderLineItem(
+                    status=paid
                 )
                 order_line_item.save()
                 return redirect(reverse('products'))

@@ -13,6 +13,8 @@ pillow = "*"
 django-crispy-forms = "*"
 django-stdimage = "*"
 stripe = "*"
+django-bootstrap3 = "*"
+
 
 [requires]
 python_version = "3.6"

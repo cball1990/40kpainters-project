@@ -35,7 +35,7 @@
 <div class="row pt-5 pb-3">
     <h4>Total:</h4>
     <p class="pt-1 pr-3"><span class="fas fa-pound-sign"></span>{{ total }}</p>
-    <a href="/" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+    <a href=" {% url 'checkout' %}" class="btn btn-success" role="button"></span>Checkout</a>
 </div>
 </div>
 {% endblock %}
