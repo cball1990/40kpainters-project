@@ -56,10 +56,10 @@ def account(request,):
         )
 
 @login_required
-def updatestatus(request, order_id):
+def updatestatus(request, Order_id):
     orders = Order.objects.all().order_by('-date')
     if request.method == 'POST':
-        updateorder = get_object_or_404(Order, pk=order_id)
+        updateorder = get_object_or_404(Order, pk=Order_id)
         updateorder.status = request.POST['status']
         updateorder.save()
         return render(request, 'accounts/adminaccount.html', {'order':orders})
