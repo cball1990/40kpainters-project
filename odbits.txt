@@ -143,3 +143,14 @@ class Order(models.Model):
 
 
 path('addtocart/<int:Products_id>', views.add_to_cart, name="addtocart"),
+
+class OrderForm(forms.Form):
+    full_name = forms.CharField(label='Full Name', required=False)
+    street_address1 = forms.CharField(label='Street Address 1', required=False)
+    street_address2 = forms.CharField(label='Street Address 2', required=False)
+    town_or_city = forms.CharField(label='Town/City', required=False)
+    county = forms.CharField(label='County', required=False)
+    postcode = forms.CharField(label='Postcode', required=False)
+    country = forms.CharField(label='Country', required=False)
+    phone_number = forms.IntegerField(label='Phone Number', required=False)
+    user = request.user.widget = forms.HiddenInput()

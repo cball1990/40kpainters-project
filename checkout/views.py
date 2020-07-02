@@ -20,6 +20,7 @@ def checkout(request):
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
+            order.user = request.user
             order.date = timezone.now()
             order.save()
 
@@ -33,7 +34,8 @@ def checkout(request):
                     order=order,
                     product=product,
                     quantity=quantity,
-                    user=user
+                    user=user,
+                    status='paid'
                 )
                 order_line_item.save()
             
@@ -50,10 +52,6 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
-                order_line_item = OrderLineItem(
-                    status=paid
-                )
-                order_line_item.save()
                 return redirect(reverse('products'))
             else:
                 messages.error(request, "Unable to take payment")

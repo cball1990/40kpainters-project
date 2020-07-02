@@ -15,23 +15,28 @@
     <div class="container">
         <div class="row  white-bg service-img">
             <div class="col-sm-12 col-md-6">
-                    
-                    <p class="main-section-text">Paint Level: {{ orders.paintlevel }}</p>
-                    <p class="main-section-text">Number Of Models: {{ orders.paintnum }}</p>
-                    <p class="main-section-text">Building Required: {{ orders.build }}</p>
-                    <p class="main-section-text">Basing Required: {{ orders.base }}</p>
-                    <p class="main-section-text">Type Of Basing If Applicable: {{ orders.basetype }}</p>
-                    <p class="main-section-text"> Colour Scheme:</p>
-                    <p class="main-section-text border border-secondary pl-1">{{ orders.scheme }}</p>
-                    <p class="main-section-text">Comments:</p>
-                    <p class="main-section-text border border-secondary pl-1">{{ orders.comments }}</p>
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default white-bg border border-dark pt-3">
+                <div class="panel-body">
+                    <img class="mx-auto d-block rounded img-fluid" src="{{ item.product.img.resized.url }}">
+            
+            <div class="pt-3">
+                <div class="header-banner">
+                <h3>{{ item.product.name }}</h3>
+                </div>
+                <p class="main-section-text pt-3">{{ item.product.description }}</p>
+                <p>£{{ item.product.price }}</p>
+                <p class="main-section-text pt-3">Quantity:{{ orders.quantity }}</p>
+            </div>
+                </div>
+            </div>
             </div>
              <div class="col-sm-12 col-md-6">
-                    <p class="main-section-text">Order Date: {{ orders.orderdate }}</p>
-                    <p class="main-section-text">House name/number: {{ orders.adnum }}</p>
-                    <p class="main-section-text">First line of address: {{ orders.adfirstline }}</p>
-                    <p class="main-section-text">Town/City: {{ orders.adtown }}</p>
-                    <p class="main-section-text">Postcode: {{ orders.adpostcode }}</p>
+                    <p class="main-section-text">Order Date: {{ orders.date }}</p>
+                    <p class="main-section-text">First line of address: {{ orders.street_address1}}</p>
+                    <p class="main-section-text">Second line of address: {{ orders.street_address2}}</p>
+                    <p class="main-section-text">Town/City: {{ orders.town_or_city }}</p>
+                    <p class="main-section-text">Postcode: {{ orders.postcode }}</p>
+                    <p class="main-section-text">Order Phone Num: {{ orders.phone_number }}</p>
                     <p class="main-section-text">Order Status: {{ orders.status }}</p>
             </div>
         </div>

@@ -1,6 +1,6 @@
 from django import forms
 from .models import Order
-
+from django.contrib.auth.models import User
 
 class MakePaymentForm(forms.Form):
 
@@ -18,8 +18,9 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
+        exclude = ["user"]
         fields = (
             'full_name', 'phone_number', 'country', 'postcode',
             'town_or_city', 'street_address1', 'street_address2',
-            'county'
+            'county', 'user'
         )

@@ -29,7 +29,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=False)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=False, related_name="orderline")
     product = models.ForeignKey(Products, on_delete=models.CASCADE, null=False)
     quantity = models.IntegerField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

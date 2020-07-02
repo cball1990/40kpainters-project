@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils import timezone
 from .models import News
-from order.models import orderForm
+from products.models import Products
+from checkout.models import OrderLineItem
+from checkout.models import Order
 
 def home(request):
     new = News.objects
@@ -45,19 +47,19 @@ def logout(request):
 @login_required
 def account(request,):
     User = request.user
-    orders = orderForm.objects.all().order_by('-orderdate')
+    orders = Order.objects.all().order_by('-date')
     if User.username == 'admin':
         return render(request, 'accounts/adminaccount.html', {'order':orders})
     else:
-        orders = orderForm.objects.filter(user=request.user)
+        orders = Order.objects.filter(user=request.user)
         return render(request, 'accounts/account.html', {'order':orders}
         )
 
 @login_required
-def updatestatus(request, orderForm_id):
-    orders = orderForm.objects.all().order_by('-orderdate')
+def updatestatus(request, order_id):
+    orders = Order.objects.all().order_by('-date')
     if request.method == 'POST':
-        updateorder = get_object_or_404(orderForm, pk=orderForm_id)
+        updateorder = get_object_or_404(Order, pk=order_id)
         updateorder.status = request.POST['status']
         updateorder.save()
         return render(request, 'accounts/adminaccount.html', {'order':orders})
