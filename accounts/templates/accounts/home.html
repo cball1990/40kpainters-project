@@ -104,7 +104,7 @@
                     <div class="header-banner"><h2>News</h2></div>
                     <div class="p-3">
                     <br>
-                        {% for news in news.all %}
+                        {% for news in news %}
                             <h4>{{ news.title }}</h4>
                             <p class="main-section-text">{{ news.pub_date_pretty }}</p>
                             <img src="{{ news.image.url }}" height="200" width="200">
@@ -112,6 +112,7 @@
                             <hr>
                             <br>
                         {% endfor %}
+                        <a href="{% url 'newspage' %}"><button>Read More!</button></a>
                     </div>
                 </div>
             </div>

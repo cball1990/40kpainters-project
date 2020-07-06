@@ -22,6 +22,7 @@ def checkout(request):
             order = order_form.save(commit=False)
             order.user = request.user
             order.date = timezone.now()
+            order.status='paid'
             order.save()
 
             cart = request.session.get('cart', {})
@@ -35,7 +36,6 @@ def checkout(request):
                     product=product,
                     quantity=quantity,
                     user=user,
-                    status='paid'
                 )
                 order_line_item.save()
             

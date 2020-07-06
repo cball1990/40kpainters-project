@@ -1,0 +1,27 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<div class="container container-coloured  pl-5 pr-5 pt-5">
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="button-banner pt-3">
+               <h2>Latest News</h2>
+        </div>
+    </div>
+</div>
+<div class="row row-flex">
+    {% for newsobject in news %}
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display white-bg border border-dark pt-3">
+        <h3>{{ newsobject.pub_date_pretty }}</h3>
+        <img class="mx-auto d-block rounded img-fluid" src="{{ newsobject.image.url }}">
+        <div class="pt-3">
+            <div class="header-banner-news">
+                <h3>{{ newsobject.title }}</h3>
+            </div>
+            <p class="main-section-text pt-3">{{ newsobject.body }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

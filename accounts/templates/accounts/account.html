@@ -11,26 +11,33 @@
     </div>
 {% for orders in order %}
 <br>
-    <div class="header-banner pl-3"><h2>Order For: {{ orders.user }}</h2></div>
+    <div class="header-banner pl-3"><h2>Order Date: {{ orders.date }}</h2></div>
     <div class="container">
+  
         <div class="row  white-bg service-img">
-            <div class="col-sm-12 col-md-6">
-                    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default white-bg border border-dark pt-3">
-                <div class="panel-body">
-                    <img class="mx-auto d-block rounded img-fluid" src="{{ item.product.img.resized.url }}">
             
-            <div class="pt-3">
-                <div class="header-banner">
-                <h3>{{ item.product.name }}</h3>
+            <div class="col-sm-12 col-md-6">
+              <br>
+            {% for item in orders.orderline.all %}
+                <div class="display panel panel-default white-bg border border-dark pt-3">
+                    <div class="panel-body">
+                        <img class="mx-auto d-block rounded img-fluid" src="{{ item.product.img.resized.url }}">
+                        <div class="pt-3">
+                            <div class="header-banner">
+                            <h3>{{ item.product.name }}</h3>
+                            </div>
+                            <p class="main-section-text pt-3">{{ item.product.description }}</p>
+                            <p class="main-section-text pt-3">£{{ item.product.price }}</p>
+                            <p class="main-section-text pt-3">Quantity:{{ item.quantity }}</p>
+    
+                        </div>
+                    </div>
                 </div>
-                <p class="main-section-text pt-3">{{ item.product.description }}</p>
-                <p>£{{ item.product.price }}</p>
-                <p class="main-section-text pt-3">Quantity:{{ orders.quantity }}</p>
-            </div>
-                </div>
-            </div>
+            {% endfor %}
+              <br>
             </div>
              <div class="col-sm-12 col-md-6">
+               <br>
                     <p class="main-section-text">Order Date: {{ orders.date }}</p>
                     <p class="main-section-text">First line of address: {{ orders.street_address1}}</p>
                     <p class="main-section-text">Second line of address: {{ orders.street_address2}}</p>

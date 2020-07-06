@@ -9,8 +9,13 @@ from checkout.models import OrderLineItem
 from checkout.models import Order
 
 def home(request):
-    new = News.objects
+    new = News.objects.all()
+    new = new[0:3]
     return render(request, 'accounts/home.html', {"news":new})
+
+def newspage(request):
+    New=News.objects.all().order_by('-pub_date')
+    return render(request, 'accounts/news.html', {"news":New})
 
 def signup(request):
     if request.method == 'POST':
@@ -51,7 +56,7 @@ def account(request,):
     if User.username == 'admin':
         return render(request, 'accounts/adminaccount.html', {'order':orders})
     else:
-        orders = Order.objects.filter(user=request.user)
+        orders = Order.objects.filter(user=request.user).order_by('-date')
         return render(request, 'accounts/account.html', {'order':orders}
         )
 
@@ -60,7 +65,8 @@ def updatestatus(request, Order_id):
     orders = Order.objects.all().order_by('-date')
     if request.method == 'POST':
         updateorder = get_object_or_404(Order, pk=Order_id)
-        updateorder.status = request.POST['status']
+        updateorder.status = request.POST.get('status')
+        print(updateorder.status)
         updateorder.save()
         return render(request, 'accounts/adminaccount.html', {'order':orders})
 

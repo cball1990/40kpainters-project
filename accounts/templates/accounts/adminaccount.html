@@ -39,7 +39,7 @@
                             <p class="main-section-text pt-3">{{ item.product.description }}</p>
                             <p class="main-section-text pt-3">£{{ item.product.price }}</p>
                             <p class="main-section-text pt-3">Quantity:{{ item.quantity }}</p>
-                            <p class="main-section-text">Order Status: {{ item.status }}</p>
+    
                         </div>
                     </div>
                 </div>
@@ -54,6 +54,7 @@
                     <p class="main-section-text">Town/City: {{ orders.town_or_city }}</p>
                     <p class="main-section-text">Postcode: {{ orders.postcode }}</p>
                     <p class="main-section-text">Order Phone Num: {{ orders.phone_number }}</p>
+                    <p class="main-section-text">Order Status: {{ orders.status }}</p>
                     <form id="update{{ orders.id }}" method="POST" action="{% url 'statusupdate' orders.id %}">
                             {% csrf_token %}
                             <br>

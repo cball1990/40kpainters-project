@@ -23,6 +23,7 @@ class Order(models.Model):
     county = models.CharField(max_length=40, blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
+    status = models.CharField(max_length=30, choices=Status_Choices, default='ordered')
 
     def __str__(self):
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
@@ -33,7 +34,7 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE, null=False)
     quantity = models.IntegerField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    status = models.CharField(max_length=30, choices=Status_Choices, default='ordered')
+   
 
     def __str__(self):
         return "{0} {1} @ {2}".format(

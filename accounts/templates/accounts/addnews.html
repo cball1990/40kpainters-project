@@ -11,19 +11,20 @@
                 <br>
                 {% endif %}
                 <form class="review-form" method='POST' action="{% url 'addnews' %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                <label class="order-text">Title:  </label><br>
-                <input class="hide" type="text" name="title" /> <br>
-                <label class="order-text">News Article:  </label><br>
-                <textarea rows='10' cols="45" name="body"></textarea>
-                <br>
-                <hr>
-                <label class="order-text">Please upload an image:  </label><br>
-                <input type="file" name="image" />
-                <br>
-                <hr>
-                <input class="btn btn-primary" type="submit" value="Add Article">
-            </form>       
+                    {% csrf_token %}
+                    <label class="order-text">Title:  </label><br>
+                    <input class="order-text" type="text" name="title" /> <br>
+                    <label class="order-text">News Article:  </label><br>
+                    <textarea rows='10' cols="45" name="body"></textarea>
+                    <br>
+                    <hr>
+                    <label class="order-text">Please upload an image:  </label><br>
+                    <input type="file" name="image" />
+                    <br>
+                    <hr>
+                    <input class="btn btn-primary" type="submit" value="Add Article">
+                </form>  
+                <br>     
             </div>
         </div>
     </div>

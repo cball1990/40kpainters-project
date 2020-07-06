@@ -15,8 +15,6 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     #checkout
     path('checkout/', include('checkout.urls')),
-    #order
-    path('order/', include('order.urls')),
     #gallery
     path('gallery/', include('gallery.urls')),
     #reviews

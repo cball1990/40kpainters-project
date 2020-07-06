@@ -6,7 +6,7 @@ from django.utils import timezone
 from .models import add_rev
 
 def reviews(request):
-    reviews = add_rev.objects.all()
+    reviews = add_rev.objects.all().order_by('-pub_date')
     return render(request, 'review/view.html', {'review':reviews})
 
 @login_required

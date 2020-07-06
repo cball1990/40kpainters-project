@@ -8,4 +8,5 @@ urlpatterns = [
     path('account/', views.account, name="account"),
     path('update/<int:Order_id>', views.updatestatus, name="statusupdate"),
     path('addnews', views.addnewsitem, name='addnews'),
+    path('news', views.newspage, name='newspage'),
 ]
