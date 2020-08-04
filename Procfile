@@ -1,1 +1,1 @@
-web: gunicorn minipainters.wsgi --log-file
+web: gunicorn minipainters.wsgi --log-file -
