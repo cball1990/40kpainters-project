@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/cball1990/40kpainters-project.svg?branch=master)](https://travis-ci.com/cball1990/40kpainters-project)
