@@ -20,6 +20,7 @@ psycopg2 = "*"
 django-heroku = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-bootstrap-form = "*"
 
 [requires]
 python_version = "3.6"
