@@ -323,7 +323,7 @@ input {
 .product-cont {
     border: solid 1px #6f6b6b26;
     box-shadow: -5px 6px 13px -5px rgba(0, 0, 0, 0.75);
-    height: 700px;
+    height: auto;
 }
 
 @media only screen and (max-width: 1009px) {
