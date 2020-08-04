@@ -15,6 +15,11 @@ django-stdimage = "*"
 stripe = "*"
 django-bootstrap3 = "*"
 coverage = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+django-heroku = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6"
