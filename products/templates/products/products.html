@@ -5,7 +5,7 @@
 <br>
     <div class="row">
         {% for product in products %}
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-6 col-md-4">
                 <div class="white-bg pt-3 mb-3 product-cont">
                     <img class="mx-auto d-block rounded" src="{{ product.img.resized.url }}">
                     <br>
@@ -17,6 +17,7 @@
                     {% csrf_token %}
                     <a href="javascript:{document.getElementById('detail{{ product.id }}').submit()}"><button class="btn btn-success ml-3">More Details</button></a>
                     </form>
+                    <br>
                 </div>
             </div>
         {% endfor %}

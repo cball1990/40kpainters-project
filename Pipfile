@@ -21,6 +21,8 @@ django-heroku = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-bootstrap-form = "*"
+django-storages = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.6"

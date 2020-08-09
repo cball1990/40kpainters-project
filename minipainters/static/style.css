@@ -29,6 +29,7 @@
 .signup-form input {
     width: 80%;
 }
+
 .signup-form-header {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -69,9 +70,10 @@ input {
     color: #6f6b6b;
 }
 
-.login-form input{
+.login-form input {
     width: 80%;
 }
+
 .login-form-header {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -228,6 +230,7 @@ h2 {
     font-family: 'PT Sans', sans-serif;
     color: #6f6b6b;
 }
+
 .review-form input {
     width: 70%;
 }
@@ -235,6 +238,7 @@ h2 {
 #review-score-input {
     width: 20%;
 }
+
 .review-form-container {
     margin-left: auto;
     margin-right: auto;
@@ -334,7 +338,7 @@ input {
 .product-cont {
     border: solid 1px #6f6b6b26;
     box-shadow: -5px 6px 13px -5px rgba(0, 0, 0, 0.75);
-    height: 700px;
+    height: auto;
 }
 
 @media only screen and (max-width: 1009px) {
