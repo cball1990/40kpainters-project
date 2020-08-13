@@ -1,9 +1,11 @@
-#40k Painters
+[![Build Status](https://travis-ci.com/cball1990/40kpainters-project.svg?branch=master)](https://travis-ci.com/cball1990/40kpainters-project)  
+
+# 40k Painters
 The idea behind this project was to create a full stack website which includes eccomerce capabilities using Django.  
 The main functionality of the website is to allow customers to research and purchase a painting service for    
 thier warhammer armies and then leave reviews of that service.
 
-##UX
+## UX
 The main aim of the website was to give customers the ability to choose a level of painting based  
 on the amount of money they would like to spend, to do this I decided to give 3 options for full armies  
 and single characters and split these into seperate products. To give more information on each product  
@@ -25,13 +27,13 @@ user wasnt needed, This also helped to steamline the purchasing and ordering pro
 changes made where just small tweaks to layouts of the pages to make them more responsive or to  
 keep inline with my design goals.
 
-##Features
-###Existing Features
+## Features
+### Existing Features
 The main feature of the website are the ability to view painting options and order what is right for  
 you, you can then add a review to give feed back on the service. Once a purchase has been made you  
 can follow its progress untill completion on the account page.
 
-###Features for the future
+### Features for the future
 I would of liked to of added a few more features in the future. In the reviews section I would  
 add the ability for the review to be add via the accounts page by having a button on each  
 order tht would allow you to leave a review on each order placed, this would also allow me to  
@@ -47,29 +49,29 @@ in progress, I could do this by having a seperate page that had all the complete
 This could be done by having the orders automatically being hidden once the status is changed to  
 completed.
 
-##Technologies Used
-####Bootstrap
+## Technologies Used
+#### Bootstrap
 Used to simplify making the app responsive and other small bits of css such as floats, padding and border rounding.
-####Google Fonts
+#### Google Fonts
 Used to find fonts to use for the text on the webpage.
-####HTML
+#### HTML
 Used to create content on the webpage.
-####Javascript and jquery
+#### Javascript and jquery
 Javascript was used for styling, such as the gallery aswell as all the code for the stripe API.
-####Python
+#### Python
 Python was used for all of the backend code.
-####Django
+#### Django
 Django was used for all the templating and routing of the project aswell as talking to the database. 
-####Postgresql
+#### Postgresql
 Postgres was the database I used to hold all the information on the users and products etc.  
-####Travis  
+#### Travis  
 Travis was used for testing purposes, it is a convinient way to test a django website  
-####Stripe  
+#### Stripe  
 Stripe handle all the payments on the website  
-####Draw.io  
+#### Draw.io  
 I used draw to create the wire frames for my project
 
-##Testing  
+## Testing  
 To run tests on my project I used Jarvis, this runs tests everytime you commit to github,  
 it also has inbuilt tests it runs aswell as running tests you write yourself. To  
 test my site further i did physical tests but going through each feature on different  
@@ -78,7 +80,7 @@ to a problem with the version on jquery I was using, this was fixed by updating 
 of jquery I was using. Along with this I asked other people to test out the site because they  
 had devices I didn't have such as an Iphone and Ipad.
 
-##Deployment
+## Deployment
 To deploy this app I used Herouku. To do this I had to add a requirements.txt file and
 a Procfile in order for heroku to be able to run the code and get it deployed. In  
 development I used dotenv to store my enviroment variables such as the stripe API  
@@ -86,14 +88,13 @@ keys and other sensitive information I did not want uploading to github. Heroku 
 you the ability to add in enviroment variable for the project in the settings. To host  
 my static files and media uploads I used aws s3 because heroku clears all file uploads  
 daily.
-to log into the website owners page to view all orders you just need to enter in  
+To log into the website owners page to view all orders you just need to enter in  
 username - admin, password - Django123. to make a purchase using stripe test card you  
 use 4242 4242 4242 4242 as the card number, enter any date thats in the future and and  
 3 digit CVV
 
-Credits
+## Credits
 Media
 Page Logo - Taken from https://www.flaticon.com/authors/freepik and edited to be the right colour.
 Images - Various pictures from google image search  
 
-[![Build Status](https://travis-ci.com/cball1990/40kpainters-project.svg?branch=master)](https://travis-ci.com/cball1990/40kpainters-project)  
