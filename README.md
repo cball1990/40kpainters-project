@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/cball1990/40kpainters-project.svg?branch=master)](https://travis-ci.com/cball1990/40kpainters-project)
-
 #40k Painters
 The idea behind this project was to create a full stack website which includes eccomerce capabilities using Django.  
 The main functionality of the website is to allow customers to research and purchase a painting service for    
@@ -96,4 +94,6 @@ use 4242 4242 4242 4242 as the card number, enter any date thats in the future a
 Credits
 Media
 Page Logo - Taken from https://www.flaticon.com/authors/freepik and edited to be the right colour.
-Images - Various pictures from google image search
+Images - Various pictures from google image search  
+
+[![Build Status](https://travis-ci.com/cball1990/40kpainters-project.svg?branch=master)](https://travis-ci.com/cball1990/40kpainters-project)  
