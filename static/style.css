@@ -223,6 +223,10 @@ h2 {
     color: #6f6b6b;
 }
 
+.review-form input {
+    width: 20%;
+}
+
 .review-form-container {
     margin-left: auto;
     margin-right: auto;
@@ -323,13 +327,7 @@ input {
 .product-cont {
     border: solid 1px #6f6b6b26;
     box-shadow: -5px 6px 13px -5px rgba(0, 0, 0, 0.75);
-    height: 200px;
-}
-
-@media only screen and (max-width: 1009px) {
-    .product-cont {
-        height: auto;
-    }
+    height: auto;
 }
 
 .header-banner-product {
