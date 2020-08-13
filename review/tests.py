@@ -10,6 +10,6 @@ class ReviewTest(TestCase):
         return Review.objects.create(name=name, body=body, pub_date=timezone.now(), score=score)
 
     def test_review_creation(self):
-        w = self.create_Review()
+        w = self.create_review()
         self.assertTrue(isinstance(w, Review))
         self.assertEqual(w.__unicode__(), w.name)
