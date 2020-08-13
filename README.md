@@ -97,4 +97,4 @@ use 4242 4242 4242 4242 as the card number, enter any date thats in the future a
 Media
 Page Logo - Taken from https://www.flaticon.com/authors/freepik and edited to be the right colour.
 Images - Various pictures from google image search  
-
+Navbar - used a bootstrap example navbar from the bootstrap website
