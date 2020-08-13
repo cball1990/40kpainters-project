@@ -171,4 +171,4 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 										
-django_heroku.settings(locals(), staticfiles=False)
+django_heroku.settings(locals(), staticfiles=False, test_runner=False)
